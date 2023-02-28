@@ -46,6 +46,8 @@ public class SecurityConfiguration
                 .authorizeRequests()
                 .antMatchers( HttpMethod.GET, "/v1/health" ).permitAll()
                 .antMatchers( HttpMethod.POST,"/v1/weather" ).permitAll()
+                .antMatchers( HttpMethod.POST,"/v1/weather/{locationId}" ).permitAll()
+                .antMatchers( HttpMethod.GET,"/v1/weather/{locationId}" ).permitAll()
                 .antMatchers( HttpMethod.GET,"/v1/location/{id}" ).permitAll()
                 .antMatchers( HttpMethod.POST,"/v1/location" ).permitAll()
                 .anyRequest().authenticated()

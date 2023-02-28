@@ -74,5 +74,12 @@ public class Location {
     public void setWeather(Weather weather) {
         this.weather = weather;
     }
+
+    public void update( LocationDto locationDto ) {
+        this.weather = locationDto.getWeather();
+        this.city = locationDto.getCity();
+        this.country = locationDto.getCountry();
+        this.region = locationDto.getRegion();
+    }
 }
 

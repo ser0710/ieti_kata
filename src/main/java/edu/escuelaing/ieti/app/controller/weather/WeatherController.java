@@ -28,11 +28,15 @@ public class WeatherController {
         this.locationService = locationService;
     }
 
-    @PostMapping("/{locationId}")
-    public ResponseEntity<Weather> create(@RequestBody WeatherDto weatherDto, @PathVariable String locationId){
-        Optional<Location> location = locationService.findWeather(locationId);
+    @GetMapping("/{locationId}")
+    public ResponseEntity<?> getLocation(@PathVariable String locationId){
+        return ResponseEntity.ok(locationService.findWeather(locationId));
+    }
 
-        return ResponseEntity.ok(weatherService.createWeather(weatherDto));
+    @PostMapping("/{locationId}")
+    public ResponseEntity<?> create(@RequestBody WeatherDto weatherDto, @PathVariable String locationId){
+        locationService.update(weatherDto, locationId);
+        return ResponseEntity.ok(locationService.findWeather(locationId));
     }
 
 

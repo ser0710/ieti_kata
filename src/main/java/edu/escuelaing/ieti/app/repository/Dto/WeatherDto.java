@@ -1,6 +1,5 @@
 package edu.escuelaing.ieti.app.repository.Dto;
 
-import org.springframework.data.annotation.Id;
 
 public class WeatherDto {
 
